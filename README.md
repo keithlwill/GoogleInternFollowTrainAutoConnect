@@ -1,4 +1,4 @@
-# GoogleInternFollowTrainAutoConnect
+# Google Intern Follow Train AutoConnect
 There's a Google Intern Follow Train. A.K.A a Google Sheets document with interns and a bunch of links to their LinkedIn, Instagram, Twitter, etc
 
 **Instead of manually clicking through hundreds of links, why not learn some basic web automation and automate the process with Selenium?**
