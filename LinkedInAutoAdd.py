@@ -38,9 +38,18 @@ if __name__ == "__main__":
 
     for link in lst:
         driver.get(link) 
-        
-        connectButton = driver.find_elements_by_xpath("//button[contains(string(), 'Connect')]")[0] #for every link in the follow train list, click the connect button
-        connectButton.click()
-        sendButton = driver.find_elements_by_xpath("//button[contains(string(), 'Done')]")[0] #In order for the connection invitation to send, this button NEEDS to be clicked
-        sendButton.click()
-        
+
+        connectButton = driver.find_elements_by_xpath("//button[contains(string(), 'Connect')]") 
+        print(connectButton)
+        if len(connectButton) == 0: #if a connect button cannot be found, just move on to the next link 
+            print("Length was 0, moving on")
+            continue
+        connectButton[0].click() #click the connect button
+
+        sendButton = driver.find_elements_by_xpath("//button[contains(string(), 'Done')]") 
+        if len(sendButton) == 0:
+            sendButton = driver.find_elements_by_xpath("//button[contains(string(), 'Send now')]") #In order for the connection to successfully send, either a "Done" or "Send now" button needs to be clicked
+            if len(sendButton) == 0:
+                continue
+
+        sendButton[0].click()
